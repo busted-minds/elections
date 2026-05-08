@@ -707,21 +707,118 @@
 
     @media (max-width: 720px) {
       nav {
-        align-items: flex-start;
-        border-radius: 28px;
+        position: relative;
+        top: auto;
+        width: min(100% - 24px, 1120px);
+        margin-top: 12px;
+        padding: 10px;
+        align-items: stretch;
+        border-radius: 24px;
         flex-direction: column;
+        gap: 10px;
+      }
+
+      .nav-brand {
+        justify-content: center;
+      }
+
+      .nav-brand img {
+        width: 32px;
+        height: 32px;
       }
 
       .nav-links {
-        justify-content: flex-start;
+        display: grid;
+        grid-template-columns: repeat(4, max-content);
+        justify-content: start;
+        overflow-x: auto;
+        padding-bottom: 2px;
+        scrollbar-width: none;
+      }
+
+      .nav-links::-webkit-scrollbar {
+        display: none;
+      }
+
+      .nav-links a {
+        font-size: .78rem;
+        padding: 8px 10px;
+        white-space: nowrap;
       }
 
       header {
-        padding-top: 46px;
+        width: min(100% - 24px, 1180px);
+        padding: 34px 0 34px;
+      }
+
+      .logo-wrap {
+        width: 104px;
+        height: 104px;
+        border-radius: 30px;
+        margin-bottom: 16px;
+      }
+
+      .brand-logo {
+        width: 82px;
+        height: 82px;
+      }
+
+      .badge {
+        font-size: .66rem;
+        padding: 8px 12px;
+        margin-bottom: 16px;
+        letter-spacing: .08em;
+      }
+
+      h1 {
+        font-size: clamp(2.45rem, 14vw, 4rem);
+        line-height: .92;
+        letter-spacing: -.06em;
+        margin-bottom: 16px;
+      }
+
+      .subtitle {
+        font-size: .96rem;
+        line-height: 1.55;
+        margin-bottom: 22px;
+      }
+
+      .hero-actions {
+        gap: 9px;
+      }
+
+      .pill {
+        padding: 10px 12px;
+        border-radius: 14px;
+        font-size: .82rem;
       }
 
       .hero-card {
-        grid-template-columns: 1fr;
+        grid-template-columns: 1fr 1fr;
+        gap: 10px;
+        margin-top: 26px;
+      }
+
+      .stat {
+        padding: 14px;
+        border-radius: 20px;
+      }
+
+      .stat strong {
+        font-size: 1.45rem;
+      }
+
+      .stat span {
+        font-size: .76rem;
+      }
+
+      main {
+        width: min(100% - 24px, 1220px);
+        padding-top: 8px;
+      }
+
+      .section-title {
+        margin-top: 30px;
       }
 
       table, thead, tbody, th, td, tr {
@@ -791,6 +888,7 @@
         <div class="pill">⚖️ Fair Election</div>
         <div class="pill">📜 Manifestos Released</div>
         <div class="pill">🔥 Campaign Mode On</div>
+        <div class="pill">📅 Election: May 12, 2026</div>
         <div class="pill">😤 Copying Strictly Banned</div>
       </div>
 
@@ -798,7 +896,7 @@
         <div class="stat"><strong>3</strong><span>Official Parties</span></div>
         <div class="stat"><strong>3</strong><span>Unique Symbols</span></div>
         <div class="stat"><strong>1</strong><span>Winner</span></div>
-        <div class="stat"><strong>∞</strong><span>Expected Chaos</span></div>
+        <div class="stat"><strong>May 12</strong><span>Election Day</span></div>
       </div>
     </header>
 
@@ -979,8 +1077,8 @@
           <div class="timeline-item">
             <div class="timeline-dot">🗳️</div>
             <div>
-              <h3>Voting Begins</h3>
-              <p>Members vote based on candidates, policies, trust, vibes, and expected entertainment value.</p>
+              <h3>Election Day — May 12, 2026</h3>
+              <p>Voting will be held on May 12. Members vote based on candidates, policies, trust, vibes, and expected entertainment value.</p>
             </div>
           </div>
         </div>
@@ -1023,7 +1121,7 @@
           <h2>Choose wisely. Roast responsibly.</h2>
           <p>This election belongs to the people of Busted Minds. Read the manifestos, listen to campaigns, and vote for the future you want to suffer under.</p>
         </div>
-        <button class="vote-button">Democracy Loading...</button>
+        <button class="vote-button">Election on May 12</button>
       </section>
     </main>
 
