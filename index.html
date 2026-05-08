@@ -56,6 +56,11 @@
       z-index: 0;
     }
 
+    button {
+      font-family: inherit;
+      cursor: pointer;
+    }
+
     .orb {
       position: fixed;
       width: 280px;
@@ -88,9 +93,39 @@
       animation-delay: -5s;
     }
 
+    .floaters {
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      overflow: hidden;
+      z-index: 0;
+    }
+
+    .floater {
+      position: absolute;
+      bottom: -80px;
+      font-size: 1.7rem;
+      opacity: .22;
+      animation: rise 18s linear infinite;
+    }
+
+    .floater:nth-child(1) { left: 7%; animation-delay: 0s; }
+    .floater:nth-child(2) { left: 20%; animation-delay: -5s; }
+    .floater:nth-child(3) { left: 34%; animation-delay: -10s; }
+    .floater:nth-child(4) { left: 49%; animation-delay: -2s; }
+    .floater:nth-child(5) { left: 63%; animation-delay: -7s; }
+    .floater:nth-child(6) { left: 78%; animation-delay: -12s; }
+    .floater:nth-child(7) { left: 91%; animation-delay: -4s; }
+
     @keyframes float {
       0%, 100% { transform: translateY(0) scale(1); }
       50% { transform: translateY(-28px) scale(1.06); }
+    }
+
+    @keyframes rise {
+      0% { transform: translateY(0) rotate(0deg); opacity: 0; }
+      12% { opacity: .22; }
+      100% { transform: translateY(-120vh) rotate(360deg); opacity: 0; }
     }
 
     .page {
@@ -156,10 +191,36 @@
       background: rgba(255,255,255,.1);
     }
 
+    .ticker {
+      width: min(1120px, calc(100% - 32px));
+      margin: 14px auto 0;
+      overflow: hidden;
+      border: 1px solid rgba(250, 204, 21, .28);
+      border-radius: 999px;
+      background: rgba(250, 204, 21, .08);
+      box-shadow: 0 16px 46px rgba(0,0,0,.24);
+    }
+
+    .ticker-track {
+      display: inline-flex;
+      white-space: nowrap;
+      gap: 36px;
+      padding: 10px 18px;
+      color: #fde68a;
+      font-weight: 900;
+      font-size: .88rem;
+      animation: ticker 24s linear infinite;
+    }
+
+    @keyframes ticker {
+      from { transform: translateX(0); }
+      to { transform: translateX(-50%); }
+    }
+
     header {
       width: min(1180px, calc(100% - 36px));
       margin: 0 auto;
-      padding: 72px 0 48px;
+      padding: 64px 0 48px;
       text-align: center;
     }
 
@@ -284,6 +345,76 @@
       font-size: .86rem;
     }
 
+    .countdown {
+      margin: 34px auto 0;
+      max-width: 980px;
+      padding: 20px;
+      border-radius: 30px;
+      background: rgba(255,255,255,.075);
+      border: 1px solid var(--border);
+      box-shadow: 0 24px 70px rgba(0,0,0,.28);
+      backdrop-filter: blur(18px);
+    }
+
+    .countdown h2 {
+      font-size: 1.1rem;
+      margin-bottom: 14px;
+      color: var(--gold);
+      letter-spacing: .08em;
+      text-transform: uppercase;
+    }
+
+    .countdown-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 12px;
+    }
+
+    .time-box {
+      padding: 16px;
+      border-radius: 22px;
+      background: rgba(255,255,255,.085);
+      border: 1px solid rgba(255,255,255,.12);
+    }
+
+    .time-box strong {
+      display: block;
+      font-size: clamp(1.6rem, 4vw, 2.4rem);
+      letter-spacing: -.04em;
+    }
+
+    .time-box span {
+      color: var(--muted);
+      font-size: .8rem;
+      font-weight: 900;
+      text-transform: uppercase;
+      letter-spacing: .08em;
+    }
+
+    .fun-buttons {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 20px;
+    }
+
+    .fun-btn {
+      border: 1px solid rgba(255,255,255,.18);
+      background: rgba(255,255,255,.1);
+      color: var(--text);
+      padding: 12px 15px;
+      border-radius: 16px;
+      font-weight: 950;
+      box-shadow: 0 14px 36px rgba(0,0,0,.22);
+      transition: .18s ease;
+    }
+
+    .fun-btn:hover {
+      transform: translateY(-3px);
+      background: rgba(255,255,255,.15);
+    }
+
     main {
       width: min(1220px, calc(100% - 36px));
       margin: 0 auto;
@@ -327,13 +458,18 @@
       box-shadow: 0 30px 90px rgba(0,0,0,.38), inset 0 1px 0 rgba(255,255,255,.16);
       overflow: hidden;
       backdrop-filter: blur(22px);
-      transition: transform .25s ease, box-shadow .25s ease, border-color .25s ease;
+      transition: transform .25s ease, box-shadow .25s ease, border-color .25s ease, outline .25s ease;
+      cursor: pointer;
     }
 
-    .party-card:hover {
+    .party-card:hover, .party-card.active {
       transform: translateY(-10px) scale(1.01);
       border-color: rgba(255,255,255,.36);
-      box-shadow: 0 42px 120px rgba(0,0,0,.5), 0 0 46px rgba(255,255,255,.04);
+      box-shadow: 0 42px 120px rgba(0,0,0,.5), 0 0 46px var(--accent);
+    }
+
+    .party-card.active {
+      outline: 2px solid var(--accent);
     }
 
     .party-card::before {
@@ -384,6 +520,11 @@
       border: 1px solid rgba(255,255,255,.2);
       font-size: 3.45rem;
       box-shadow: inset 0 1px 0 rgba(255,255,255,.22), 0 20px 44px rgba(0,0,0,.3);
+      transition: transform .25s ease;
+    }
+
+    .party-card:hover .symbol, .party-card.active .symbol {
+      transform: rotate(-8deg) scale(1.08);
     }
 
     .candidate-number {
@@ -497,6 +638,12 @@
       border: 1px solid var(--border);
       box-shadow: 0 22px 70px rgba(0,0,0,.26);
       backdrop-filter: blur(18px);
+      transition: .2s ease;
+    }
+
+    .feature:hover {
+      transform: translateY(-6px);
+      background: rgba(255,255,255,.105);
     }
 
     .feature .icon {
@@ -515,7 +662,7 @@
       font-size: .92rem;
     }
 
-    .comparison, .timeline, .rules {
+    .comparison, .timeline, .rules, .fun-zone, .quiz-card {
       margin-top: 28px;
       border-radius: 36px;
       background: rgba(255,255,255,.075);
@@ -613,6 +760,95 @@
       font-size: .94rem;
     }
 
+    .fun-content {
+      padding: 24px;
+      display: grid;
+      grid-template-columns: 1.1fr .9fr;
+      gap: 18px;
+    }
+
+    .quote-card, .chaos-card, .pledge-card {
+      padding: 22px;
+      border-radius: 28px;
+      background: rgba(255,255,255,.075);
+      border: 1px solid rgba(255,255,255,.12);
+    }
+
+    .quote-card h3, .chaos-card h3, .pledge-card h3, .quiz-card h3 {
+      margin-bottom: 10px;
+      font-size: 1.2rem;
+    }
+
+    .quote-text {
+      color: #f8fafc;
+      line-height: 1.65;
+      font-weight: 850;
+      min-height: 72px;
+    }
+
+    .chaos-bar {
+      width: 100%;
+      height: 18px;
+      background: rgba(255,255,255,.12);
+      border-radius: 999px;
+      overflow: hidden;
+      border: 1px solid rgba(255,255,255,.14);
+      margin: 14px 0 10px;
+    }
+
+    .chaos-fill {
+      width: 78%;
+      height: 100%;
+      border-radius: 999px;
+      background: linear-gradient(90deg, var(--emerald), var(--gold), var(--rose));
+      transition: width .45s ease;
+    }
+
+    .chaos-label {
+      color: var(--muted);
+      font-weight: 850;
+      line-height: 1.5;
+    }
+
+    .quiz-card {
+      padding: 24px;
+    }
+
+    .quiz-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+      margin-top: 16px;
+    }
+
+    .quiz-option {
+      border: 1px solid rgba(255,255,255,.14);
+      background: rgba(255,255,255,.075);
+      color: var(--text);
+      padding: 14px;
+      border-radius: 18px;
+      font-weight: 900;
+      text-align: left;
+      transition: .18s ease;
+    }
+
+    .quiz-option:hover {
+      background: rgba(255,255,255,.13);
+      transform: translateY(-3px);
+    }
+
+    .quiz-result {
+      margin-top: 16px;
+      padding: 16px;
+      border-radius: 20px;
+      background: rgba(250,204,21,.1);
+      border: 1px solid rgba(250,204,21,.22);
+      color: #fde68a;
+      font-weight: 950;
+      line-height: 1.55;
+      display: none;
+    }
+
     .vote-banner {
       margin-top: 28px;
       padding: 30px;
@@ -663,6 +899,25 @@
       font-weight: 1000;
       border: none;
       box-shadow: 0 18px 48px rgba(250,204,21,.25);
+      transition: .18s ease;
+    }
+
+    .vote-button:hover {
+      transform: translateY(-4px) scale(1.02);
+    }
+
+    .confetti-piece {
+      position: fixed;
+      top: -20px;
+      z-index: 999;
+      pointer-events: none;
+      font-size: 1.4rem;
+      animation: confettiDrop 1.8s ease-in forwards;
+    }
+
+    @keyframes confettiDrop {
+      0% { transform: translateY(-20px) rotate(0deg); opacity: 1; }
+      100% { transform: translateY(105vh) rotate(720deg); opacity: 0; }
     }
 
     footer {
@@ -683,7 +938,7 @@
     }
 
     @media (max-width: 1040px) {
-      .party-grid, .feature-grid {
+      .party-grid, .feature-grid, .fun-content {
         grid-template-columns: 1fr;
       }
 
@@ -729,7 +984,7 @@
 
       .nav-links {
         display: grid;
-        grid-template-columns: repeat(4, max-content);
+        grid-template-columns: repeat(6, max-content);
         justify-content: start;
         overflow-x: auto;
         padding-bottom: 2px;
@@ -744,6 +999,11 @@
         font-size: .78rem;
         padding: 8px 10px;
         white-space: nowrap;
+      }
+
+      .ticker {
+        width: min(100% - 24px, 1120px);
+        border-radius: 18px;
       }
 
       header {
@@ -793,22 +1053,22 @@
         font-size: .82rem;
       }
 
-      .hero-card {
+      .hero-card, .countdown-grid, .quiz-grid {
         grid-template-columns: 1fr 1fr;
         gap: 10px;
         margin-top: 26px;
       }
 
-      .stat {
+      .stat, .time-box {
         padding: 14px;
         border-radius: 20px;
       }
 
-      .stat strong {
+      .stat strong, .time-box strong {
         font-size: 1.45rem;
       }
 
-      .stat span {
+      .stat span, .time-box span {
         font-size: .76rem;
       }
 
@@ -861,6 +1121,16 @@
   <div class="orb two"></div>
   <div class="orb three"></div>
 
+  <div class="floaters">
+    <span class="floater">🗳️</span>
+    <span class="floater">⚖️</span>
+    <span class="floater">🔥</span>
+    <span class="floater">🧿</span>
+    <span class="floater">🥊</span>
+    <span class="floater">🛡️</span>
+    <span class="floater">📜</span>
+  </div>
+
   <div class="page">
     <nav>
       <div class="nav-brand">
@@ -870,10 +1140,24 @@
       <div class="nav-links">
         <a href="#candidates">Candidates</a>
         <a href="#features">Highlights</a>
+        <a href="#fun">Fun Zone</a>
+        <a href="#quiz">Quiz</a>
         <a href="#compare">Compare</a>
         <a href="#rules">Rules</a>
       </div>
     </nav>
+
+    <div class="ticker">
+      <div class="ticker-track">
+        <span>🚨 Breaking: Campaign chaos officially detected</span>
+        <span>🗳️ Election Day: May 12, 2026</span>
+        <span>⚖️ BMEC says: roast responsibly</span>
+        <span>😤 Copying symbols is unconstitutional behaviour</span>
+        <span>🔥 Manifestos are public, drama is expected</span>
+        <span>🚨 Breaking: Campaign chaos officially detected</span>
+        <span>🗳️ Election Day: May 12, 2026</span>
+      </div>
+    </div>
 
     <header>
       <div class="logo-wrap">
@@ -898,16 +1182,31 @@
         <div class="stat"><strong>1</strong><span>Winner</span></div>
         <div class="stat"><strong>May 12</strong><span>Election Day</span></div>
       </div>
+
+      <section class="countdown">
+        <h2>Countdown to Election Day</h2>
+        <div class="countdown-grid">
+          <div class="time-box"><strong id="days">00</strong><span>Days</span></div>
+          <div class="time-box"><strong id="hours">00</strong><span>Hours</span></div>
+          <div class="time-box"><strong id="minutes">00</strong><span>Minutes</span></div>
+          <div class="time-box"><strong id="seconds">00</strong><span>Seconds</span></div>
+        </div>
+        <div class="fun-buttons">
+          <button class="fun-btn" onclick="startDemocracy()">🎉 Start Democracy</button>
+          <button class="fun-btn" onclick="newQuote()">🎙️ Random Campaign Quote</button>
+          <button class="fun-btn" onclick="increaseChaos()">🔥 Increase Chaos</button>
+        </div>
+      </section>
     </header>
 
     <main>
       <section class="section-title" id="candidates">
         <h2>Official Candidates</h2>
-        <p>Read the manifestos, inspect the promises, judge the confidence, and prepare your vote carefully.</p>
+        <p>Tap a candidate card to activate party glow. Read the manifestos, inspect the promises, judge the confidence, and prepare your vote carefully.</p>
       </section>
 
       <section class="party-grid">
-        <article class="party-card rbm">
+        <article class="party-card rbm" data-party="RBM">
           <div class="symbol-row">
             <div class="symbol">🧿</div>
             <div class="candidate-number">Candidate <strong>01</strong></div>
@@ -931,7 +1230,7 @@
           </ul>
         </article>
 
-        <article class="party-card blood">
+        <article class="party-card blood" data-party="Blood Hounds">
           <div class="symbol-row">
             <div class="symbol">🥊</div>
             <div class="candidate-number">Candidate <strong>02</strong></div>
@@ -954,7 +1253,7 @@
           </ul>
         </article>
 
-        <article class="party-card vanguard">
+        <article class="party-card vanguard" data-party="Vanguard">
           <div class="symbol-row">
             <div class="symbol">🛡️</div>
             <div class="candidate-number">Candidate <strong>03</strong></div>
@@ -1004,6 +1303,61 @@
           <h3>Unity Agenda</h3>
           <p>Vanguard focuses on brotherhood, equal voice, discipline, and a united group identity.</p>
         </div>
+      </section>
+
+      <section class="section-title" id="fun">
+        <h2>Fun Zone</h2>
+        <p>Officially unnecessary features approved by the Ministry of Maximum Chaos.</p>
+      </section>
+
+      <section class="fun-zone">
+        <div class="panel-header">
+          <div>
+            <h2>Election Entertainment Dashboard</h2>
+            <p>Generate quotes, measure chaos, and pledge your democratic readiness.</p>
+          </div>
+        </div>
+        <div class="fun-content">
+          <div class="quote-card">
+            <h3>🎙️ Campaign Quote Generator</h3>
+            <p class="quote-text" id="quoteText">“Democracy is temporary. Group screenshots are forever.”</p>
+            <div class="fun-buttons" style="justify-content:flex-start">
+              <button class="fun-btn" onclick="newQuote()">Generate Quote</button>
+            </div>
+          </div>
+          <div class="chaos-card">
+            <h3>🔥 Chaos Meter</h3>
+            <div class="chaos-bar"><div class="chaos-fill" id="chaosFill"></div></div>
+            <p class="chaos-label" id="chaosLabel">Current status: Manageable chaos with mild manifesto tension.</p>
+            <div class="fun-buttons" style="justify-content:flex-start">
+              <button class="fun-btn" onclick="increaseChaos()">Add Chaos</button>
+              <button class="fun-btn" onclick="resetChaos()">Reset</button>
+            </div>
+          </div>
+          <div class="pledge-card">
+            <h3>🗳️ Vote Pledge</h3>
+            <p class="quote-text" id="pledgeText">Press the button to declare yourself mentally prepared for democracy.</p>
+            <div class="fun-buttons" style="justify-content:flex-start">
+              <button class="fun-btn" onclick="pledgeVote()">I Am Ready To Vote</button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section-title" id="quiz">
+        <h2>Vote Compass Quiz</h2>
+        <p>A completely unofficial, scientifically questionable quiz to match your vibes with a party.</p>
+      </section>
+
+      <section class="quiz-card">
+        <h3 id="quizQuestion">What do you want most from the next admin?</h3>
+        <div class="quiz-grid" id="quizOptions">
+          <button class="quiz-option" onclick="answerQuiz('rbm')">Trips, cricket, and activities</button>
+          <button class="quiz-option" onclick="answerQuiz('blood')">Fast action and execution</button>
+          <button class="quiz-option" onclick="answerQuiz('vanguard')">Unity and equal voice</button>
+          <button class="quiz-option" onclick="answerQuiz('chaos')">Maximum entertainment</button>
+        </div>
+        <div class="quiz-result" id="quizResult"></div>
       </section>
 
       <section class="comparison" id="compare">
@@ -1121,7 +1475,7 @@
           <h2>Choose wisely. Roast responsibly.</h2>
           <p>This election belongs to the people of Busted Minds. Read the manifestos, listen to campaigns, and vote for the future you want to suffer under.</p>
         </div>
-        <button class="vote-button">Election on May 12</button>
+        <button class="vote-button" onclick="startDemocracy()">Election on May 12</button>
       </section>
     </main>
 
@@ -1131,5 +1485,111 @@
       </div>
     </footer>
   </div>
+
+  <script>
+    const electionDate = new Date('2026-05-12T20:00:00+05:30');
+    const quotes = [
+      '“Democracy is temporary. Group screenshots are forever.”',
+      '“One vote can change history. One roast can change the group mood.”',
+      '“Manifestos may fade, but campaign drama is eternal.”',
+      '“BMEC confirms: vibes are not a legal voting method, but they matter.”',
+      '“Promise less, execute more, forward fewer cringe messages.”',
+      '“In Busted Minds, every vote counts and every reply gets judged.”',
+      '“The future belongs to those who campaign before the admin mutes them.”'
+    ];
+    let chaos = 78;
+
+    function updateCountdown() {
+      const now = new Date();
+      const diff = electionDate - now;
+      const safeDiff = Math.max(diff, 0);
+      const days = Math.floor(safeDiff / (1000 * 60 * 60 * 24));
+      const hours = Math.floor((safeDiff / (1000 * 60 * 60)) % 24);
+      const minutes = Math.floor((safeDiff / (1000 * 60)) % 60);
+      const seconds = Math.floor((safeDiff / 1000) % 60);
+
+      document.getElementById('days').textContent = String(days).padStart(2, '0');
+      document.getElementById('hours').textContent = String(hours).padStart(2, '0');
+      document.getElementById('minutes').textContent = String(minutes).padStart(2, '0');
+      document.getElementById('seconds').textContent = String(seconds).padStart(2, '0');
+    }
+
+    function startDemocracy() {
+      const symbols = ['🎉', '🗳️', '⚖️', '🔥', '📜', '🧿', '🥊', '🛡️'];
+      for (let i = 0; i < 60; i++) {
+        const piece = document.createElement('div');
+        piece.className = 'confetti-piece';
+        piece.textContent = symbols[Math.floor(Math.random() * symbols.length)];
+        piece.style.left = Math.random() * 100 + 'vw';
+        piece.style.animationDelay = Math.random() * .5 + 's';
+        piece.style.fontSize = (Math.random() * 1.2 + 1) + 'rem';
+        document.body.appendChild(piece);
+        setTimeout(() => piece.remove(), 2300);
+      }
+      increaseChaos(8);
+    }
+
+    function newQuote() {
+      const quoteText = document.getElementById('quoteText');
+      quoteText.textContent = quotes[Math.floor(Math.random() * quotes.length)];
+      quoteText.animate([
+        { transform: 'scale(.98)', opacity: .4 },
+        { transform: 'scale(1)', opacity: 1 }
+      ], { duration: 250, easing: 'ease-out' });
+    }
+
+    function updateChaos() {
+      document.getElementById('chaosFill').style.width = chaos + '%';
+      const label = document.getElementById('chaosLabel');
+      if (chaos < 35) label.textContent = 'Current status: Suspiciously peaceful. Something is wrong.';
+      else if (chaos < 65) label.textContent = 'Current status: Normal election tension with mild roasting.';
+      else if (chaos < 90) label.textContent = 'Current status: Manageable chaos with manifesto-level drama.';
+      else label.textContent = 'Current status: Constitutional crisis. BMEC intervention recommended.';
+    }
+
+    function increaseChaos(amount = 12) {
+      chaos = Math.min(100, chaos + amount);
+      updateChaos();
+    }
+
+    function resetChaos() {
+      chaos = 24;
+      updateChaos();
+    }
+
+    function pledgeVote() {
+      document.getElementById('pledgeText').textContent = '✅ You are officially ready to vote. Your democratic responsibility and meme judgement have been activated.';
+      startDemocracy();
+    }
+
+    function answerQuiz(type) {
+      const result = document.getElementById('quizResult');
+      const messages = {
+        rbm: 'Your vibe match: 🧿 Republic Party of Busted Minds — trips, cricket, fitness, and group upgrades.',
+        blood: 'Your vibe match: 🥊 Blood Hounds — action first, discussion later, diplomacy if required.',
+        vanguard: 'Your vibe match: 🛡️ Vanguard — brotherhood, unity, equal voice, and disciplined fun.',
+        chaos: 'Your vibe match: 🤯 Undecided Swing Voter — you are here for entertainment, debates, and maximum drama.'
+      };
+      result.style.display = 'block';
+      result.textContent = messages[type];
+      result.animate([
+        { transform: 'translateY(8px)', opacity: .2 },
+        { transform: 'translateY(0)', opacity: 1 }
+      ], { duration: 260, easing: 'ease-out' });
+    }
+
+    document.querySelectorAll('.party-card').forEach(card => {
+      card.addEventListener('click', () => {
+        document.querySelectorAll('.party-card').forEach(c => c.classList.remove('active'));
+        card.classList.add('active');
+        const party = card.getAttribute('data-party');
+        document.getElementById('quoteText').textContent = `“${party} campaign mode activated. Public judgement has begun.”`;
+      });
+    });
+
+    setInterval(updateCountdown, 1000);
+    updateCountdown();
+    updateChaos();
+  </script>
 </body>
 </html>
