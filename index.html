@@ -1,0 +1,1037 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Busted Minds Election 2026</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    :root {
+      --bg: #070711;
+      --surface: rgba(255, 255, 255, 0.08);
+      --surface-strong: rgba(255, 255, 255, 0.13);
+      --border: rgba(255, 255, 255, 0.18);
+      --text: #f8fafc;
+      --muted: #b8bfd7;
+      --gold: #facc15;
+      --cyan: #38bdf8;
+      --rose: #fb7185;
+      --emerald: #34d399;
+      --violet: #a78bfa;
+      --orange: #fb923c;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      min-height: 100vh;
+      color: var(--text);
+      background:
+        radial-gradient(circle at 10% 10%, rgba(56, 189, 248, 0.24), transparent 32%),
+        radial-gradient(circle at 90% 5%, rgba(250, 204, 21, 0.20), transparent 28%),
+        radial-gradient(circle at 50% 95%, rgba(167, 139, 250, 0.24), transparent 34%),
+        linear-gradient(135deg, #05050b, #111025 48%, #070711);
+      overflow-x: hidden;
+    }
+
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      background-image:
+        linear-gradient(rgba(255,255,255,.045) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,.045) 1px, transparent 1px);
+      background-size: 36px 36px;
+      mask-image: linear-gradient(to bottom, black, transparent 88%);
+      opacity: .8;
+      z-index: 0;
+    }
+
+    .orb {
+      position: fixed;
+      width: 280px;
+      height: 280px;
+      border-radius: 999px;
+      filter: blur(24px);
+      opacity: .45;
+      pointer-events: none;
+      animation: float 9s ease-in-out infinite;
+      z-index: 0;
+    }
+
+    .orb.one {
+      top: 130px;
+      left: -90px;
+      background: rgba(56, 189, 248, .35);
+    }
+
+    .orb.two {
+      right: -100px;
+      top: 360px;
+      background: rgba(251, 113, 133, .33);
+      animation-delay: -3s;
+    }
+
+    .orb.three {
+      left: 40%;
+      bottom: -120px;
+      background: rgba(250, 204, 21, .25);
+      animation-delay: -5s;
+    }
+
+    @keyframes float {
+      0%, 100% { transform: translateY(0) scale(1); }
+      50% { transform: translateY(-28px) scale(1.06); }
+    }
+
+    .page {
+      position: relative;
+      z-index: 1;
+    }
+
+    nav {
+      width: min(1120px, calc(100% - 32px));
+      margin: 18px auto 0;
+      padding: 12px 14px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 14px;
+      position: sticky;
+      top: 14px;
+      z-index: 20;
+      border: 1px solid var(--border);
+      border-radius: 999px;
+      background: rgba(7, 7, 17, .66);
+      backdrop-filter: blur(20px);
+      box-shadow: 0 18px 60px rgba(0,0,0,.32);
+    }
+
+    .nav-brand {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-weight: 900;
+      letter-spacing: -.02em;
+    }
+
+    .nav-brand img {
+      width: 38px;
+      height: 38px;
+      object-fit: contain;
+      border-radius: 12px;
+      background: rgba(255,255,255,.1);
+      padding: 4px;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      flex-wrap: wrap;
+      justify-content: flex-end;
+    }
+
+    .nav-links a {
+      color: var(--muted);
+      text-decoration: none;
+      font-size: .88rem;
+      font-weight: 800;
+      padding: 9px 12px;
+      border-radius: 999px;
+      transition: .2s ease;
+    }
+
+    .nav-links a:hover {
+      color: var(--text);
+      background: rgba(255,255,255,.1);
+    }
+
+    header {
+      width: min(1180px, calc(100% - 36px));
+      margin: 0 auto;
+      padding: 72px 0 48px;
+      text-align: center;
+    }
+
+    .logo-wrap {
+      width: 142px;
+      height: 142px;
+      margin: 0 auto 22px;
+      display: grid;
+      place-items: center;
+      border-radius: 40px;
+      background: linear-gradient(145deg, rgba(255,255,255,.18), rgba(255,255,255,.04));
+      border: 1px solid var(--border);
+      box-shadow: 0 30px 90px rgba(0,0,0,.42), inset 0 1px 0 rgba(255,255,255,.22);
+      transform: rotate(-2deg);
+      animation: logoPop 3s ease-in-out infinite;
+    }
+
+    .brand-logo {
+      width: 112px;
+      height: 112px;
+      object-fit: contain;
+      filter: drop-shadow(0 18px 22px rgba(0,0,0,.34));
+    }
+
+    @keyframes logoPop {
+      0%, 100% { transform: rotate(-2deg) translateY(0); }
+      50% { transform: rotate(2deg) translateY(-8px); }
+    }
+
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 10px 16px;
+      border-radius: 999px;
+      background: rgba(255,255,255,.09);
+      border: 1px solid var(--border);
+      color: var(--gold);
+      font-weight: 900;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+      font-size: .78rem;
+      box-shadow: 0 12px 44px rgba(0,0,0,.24);
+      margin-bottom: 22px;
+    }
+
+    h1 {
+      max-width: 980px;
+      margin: 0 auto 22px;
+      font-size: clamp(3rem, 9vw, 7.2rem);
+      line-height: .88;
+      letter-spacing: -.075em;
+      text-shadow: 0 24px 90px rgba(0,0,0,.5);
+    }
+
+    .gradient-text {
+      background: linear-gradient(90deg, var(--gold), var(--cyan), var(--violet), var(--rose));
+      background-size: 220% 100%;
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+      animation: shimmer 6s ease infinite;
+    }
+
+    @keyframes shimmer {
+      0%, 100% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+    }
+
+    .subtitle {
+      max-width: 760px;
+      margin: 0 auto 30px;
+      color: var(--muted);
+      font-size: clamp(1rem, 2vw, 1.24rem);
+      line-height: 1.75;
+    }
+
+    .hero-actions, .stats-grid {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 14px;
+    }
+
+    .pill {
+      padding: 13px 18px;
+      border-radius: 18px;
+      color: var(--text);
+      background: rgba(255,255,255,.09);
+      border: 1px solid var(--border);
+      font-weight: 900;
+      box-shadow: 0 16px 48px rgba(0,0,0,.24);
+    }
+
+    .hero-card {
+      margin: 42px auto 0;
+      max-width: 980px;
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 14px;
+    }
+
+    .stat {
+      padding: 20px;
+      border-radius: 26px;
+      background: rgba(255,255,255,.08);
+      border: 1px solid var(--border);
+      backdrop-filter: blur(18px);
+      box-shadow: 0 22px 60px rgba(0,0,0,.25);
+    }
+
+    .stat strong {
+      display: block;
+      font-size: 2.1rem;
+      letter-spacing: -.05em;
+      margin-bottom: 4px;
+    }
+
+    .stat span {
+      color: var(--muted);
+      font-weight: 800;
+      font-size: .86rem;
+    }
+
+    main {
+      width: min(1220px, calc(100% - 36px));
+      margin: 0 auto;
+      padding: 22px 0 76px;
+    }
+
+    .section-title {
+      display: flex;
+      align-items: end;
+      justify-content: space-between;
+      gap: 22px;
+      margin: 42px 0 24px;
+    }
+
+    .section-title h2 {
+      font-size: clamp(2rem, 4.5vw, 3.4rem);
+      letter-spacing: -.055em;
+    }
+
+    .section-title p {
+      color: var(--muted);
+      max-width: 460px;
+      line-height: 1.6;
+      text-align: right;
+    }
+
+    .party-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 22px;
+    }
+
+    .party-card {
+      --accent: var(--cyan);
+      position: relative;
+      min-height: 670px;
+      padding: 26px;
+      border-radius: 36px;
+      background: linear-gradient(150deg, rgba(255,255,255,.135), rgba(255,255,255,.045));
+      border: 1px solid var(--border);
+      box-shadow: 0 30px 90px rgba(0,0,0,.38), inset 0 1px 0 rgba(255,255,255,.16);
+      overflow: hidden;
+      backdrop-filter: blur(22px);
+      transition: transform .25s ease, box-shadow .25s ease, border-color .25s ease;
+    }
+
+    .party-card:hover {
+      transform: translateY(-10px) scale(1.01);
+      border-color: rgba(255,255,255,.36);
+      box-shadow: 0 42px 120px rgba(0,0,0,.5), 0 0 46px rgba(255,255,255,.04);
+    }
+
+    .party-card::before {
+      content: "";
+      position: absolute;
+      inset: -2px;
+      background:
+        radial-gradient(circle at 78% 8%, var(--accent), transparent 27%),
+        radial-gradient(circle at 15% 85%, rgba(255,255,255,.18), transparent 28%);
+      opacity: .24;
+      z-index: -1;
+    }
+
+    .party-card::after {
+      content: "OFFICIAL NOMINEE";
+      position: absolute;
+      top: 26px;
+      right: -42px;
+      rotate: 35deg;
+      padding: 8px 46px;
+      font-size: .66rem;
+      font-weight: 1000;
+      letter-spacing: .12em;
+      background: rgba(250, 204, 21, .95);
+      color: #18120a;
+      box-shadow: 0 12px 30px rgba(0,0,0,.24);
+    }
+
+    .party-card.rbm { --accent: rgba(56, 189, 248, .8); }
+    .party-card.blood { --accent: rgba(251, 113, 133, .82); }
+    .party-card.vanguard { --accent: rgba(167, 139, 250, .85); }
+
+    .symbol-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 14px;
+      margin-bottom: 20px;
+    }
+
+    .symbol {
+      width: 96px;
+      height: 96px;
+      display: grid;
+      place-items: center;
+      border-radius: 30px;
+      background: rgba(255,255,255,.13);
+      border: 1px solid rgba(255,255,255,.2);
+      font-size: 3.45rem;
+      box-shadow: inset 0 1px 0 rgba(255,255,255,.22), 0 20px 44px rgba(0,0,0,.3);
+    }
+
+    .candidate-number {
+      text-align: right;
+      color: var(--muted);
+      font-size: .78rem;
+      text-transform: uppercase;
+      letter-spacing: .12em;
+      font-weight: 1000;
+    }
+
+    .candidate-number strong {
+      display: block;
+      margin-top: 4px;
+      font-size: 1.8rem;
+      letter-spacing: -.04em;
+      color: var(--text);
+    }
+
+    .party-name {
+      font-size: 1.75rem;
+      letter-spacing: -.045em;
+      margin-bottom: 10px;
+      line-height: 1.08;
+    }
+
+    .candidate {
+      color: var(--muted);
+      font-size: .98rem;
+      margin-bottom: 20px;
+    }
+
+    .candidate span {
+      color: var(--text);
+      font-weight: 900;
+    }
+
+    .slogan {
+      padding: 16px;
+      border-radius: 24px;
+      background: rgba(255,255,255,.095);
+      border: 1px solid rgba(255,255,255,.15);
+      font-weight: 950;
+      line-height: 1.45;
+      margin-bottom: 18px;
+      box-shadow: inset 0 1px 0 rgba(255,255,255,.1);
+    }
+
+    .tag-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-bottom: 20px;
+    }
+
+    .tag {
+      padding: 8px 10px;
+      border-radius: 999px;
+      background: rgba(255,255,255,.09);
+      border: 1px solid rgba(255,255,255,.13);
+      color: #eef2ff;
+      font-size: .78rem;
+      font-weight: 850;
+    }
+
+    .manifesto-title {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: .78rem;
+      text-transform: uppercase;
+      letter-spacing: .13em;
+      color: var(--gold);
+      margin-bottom: 12px;
+      font-weight: 1000;
+    }
+
+    ul {
+      display: grid;
+      gap: 11px;
+      list-style: none;
+    }
+
+    li {
+      display: flex;
+      gap: 10px;
+      align-items: flex-start;
+      color: #e9edf7;
+      line-height: 1.52;
+      font-size: .96rem;
+    }
+
+    li::before {
+      content: "✦";
+      color: var(--accent);
+      font-weight: 1000;
+      margin-top: 1px;
+    }
+
+    .feature-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 16px;
+      margin-top: 28px;
+    }
+
+    .feature {
+      padding: 22px;
+      border-radius: 28px;
+      background: rgba(255,255,255,.075);
+      border: 1px solid var(--border);
+      box-shadow: 0 22px 70px rgba(0,0,0,.26);
+      backdrop-filter: blur(18px);
+    }
+
+    .feature .icon {
+      font-size: 2rem;
+      margin-bottom: 10px;
+    }
+
+    .feature h3 {
+      font-size: 1rem;
+      margin-bottom: 8px;
+    }
+
+    .feature p {
+      color: var(--muted);
+      line-height: 1.55;
+      font-size: .92rem;
+    }
+
+    .comparison, .timeline, .rules {
+      margin-top: 28px;
+      border-radius: 36px;
+      background: rgba(255,255,255,.075);
+      border: 1px solid var(--border);
+      overflow: hidden;
+      box-shadow: 0 28px 84px rgba(0,0,0,.3);
+      backdrop-filter: blur(20px);
+    }
+
+    .panel-header {
+      padding: 24px 26px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-bottom: 1px solid rgba(255,255,255,.12);
+      gap: 20px;
+    }
+
+    .panel-header h2 {
+      font-size: 1.55rem;
+      letter-spacing: -.035em;
+    }
+
+    .panel-header p {
+      color: var(--muted);
+      font-size: .95rem;
+      line-height: 1.5;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+    }
+
+    th, td {
+      padding: 18px 22px;
+      text-align: left;
+      vertical-align: top;
+      border-bottom: 1px solid rgba(255,255,255,.1);
+    }
+
+    th {
+      color: var(--gold);
+      text-transform: uppercase;
+      font-size: .75rem;
+      letter-spacing: .12em;
+      background: rgba(255,255,255,.055);
+    }
+
+    td {
+      color: #e6eaf5;
+      line-height: 1.55;
+    }
+
+    tr:last-child td {
+      border-bottom: none;
+    }
+
+    .timeline-list, .rules-list {
+      padding: 24px;
+      display: grid;
+      gap: 14px;
+    }
+
+    .timeline-item, .rule-item {
+      display: grid;
+      grid-template-columns: 58px 1fr;
+      gap: 16px;
+      align-items: start;
+      padding: 18px;
+      border-radius: 24px;
+      background: rgba(255,255,255,.07);
+      border: 1px solid rgba(255,255,255,.1);
+    }
+
+    .timeline-dot, .rule-icon {
+      width: 54px;
+      height: 54px;
+      display: grid;
+      place-items: center;
+      border-radius: 18px;
+      background: rgba(255,255,255,.1);
+      font-size: 1.5rem;
+      border: 1px solid rgba(255,255,255,.13);
+    }
+
+    .timeline-item h3, .rule-item h3 {
+      font-size: 1rem;
+      margin-bottom: 5px;
+    }
+
+    .timeline-item p, .rule-item p {
+      color: var(--muted);
+      line-height: 1.55;
+      font-size: .94rem;
+    }
+
+    .vote-banner {
+      margin-top: 28px;
+      padding: 30px;
+      border-radius: 36px;
+      background:
+        linear-gradient(135deg, rgba(250,204,21,.18), rgba(56,189,248,.11), rgba(167,139,250,.16)),
+        rgba(255,255,255,.08);
+      border: 1px solid var(--border);
+      box-shadow: 0 30px 90px rgba(0,0,0,.32);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+      overflow: hidden;
+      position: relative;
+    }
+
+    .vote-banner::after {
+      content: "🗳️";
+      position: absolute;
+      right: 28px;
+      bottom: -32px;
+      font-size: 8rem;
+      opacity: .12;
+      transform: rotate(-10deg);
+    }
+
+    .vote-banner h2 {
+      font-size: clamp(1.65rem, 4vw, 3rem);
+      letter-spacing: -.05em;
+      margin-bottom: 8px;
+    }
+
+    .vote-banner p {
+      color: var(--muted);
+      line-height: 1.6;
+      max-width: 680px;
+    }
+
+    .vote-button {
+      position: relative;
+      z-index: 1;
+      white-space: nowrap;
+      padding: 15px 20px;
+      border-radius: 18px;
+      background: var(--gold);
+      color: #17120a;
+      font-weight: 1000;
+      border: none;
+      box-shadow: 0 18px 48px rgba(250,204,21,.25);
+    }
+
+    footer {
+      width: min(1220px, calc(100% - 36px));
+      margin: 0 auto;
+      padding: 0 0 52px;
+      text-align: center;
+      color: var(--muted);
+    }
+
+    .footer-card {
+      padding: 24px;
+      border-radius: 28px;
+      background: rgba(255,255,255,.06);
+      border: 1px solid rgba(255,255,255,.12);
+      line-height: 1.7;
+      box-shadow: 0 22px 70px rgba(0,0,0,.22);
+    }
+
+    @media (max-width: 1040px) {
+      .party-grid, .feature-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .party-card {
+        min-height: auto;
+      }
+
+      .hero-card {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .section-title, .vote-banner, .panel-header {
+        align-items: flex-start;
+        flex-direction: column;
+      }
+
+      .section-title p {
+        text-align: left;
+      }
+    }
+
+    @media (max-width: 720px) {
+      nav {
+        align-items: flex-start;
+        border-radius: 28px;
+        flex-direction: column;
+      }
+
+      .nav-links {
+        justify-content: flex-start;
+      }
+
+      header {
+        padding-top: 46px;
+      }
+
+      .hero-card {
+        grid-template-columns: 1fr;
+      }
+
+      table, thead, tbody, th, td, tr {
+        display: block;
+      }
+
+      thead {
+        display: none;
+      }
+
+      tr {
+        border-bottom: 1px solid rgba(255,255,255,.12);
+        padding: 12px 0;
+      }
+
+      td {
+        border-bottom: none;
+        padding: 10px 22px;
+      }
+
+      td::before {
+        content: attr(data-label);
+        display: block;
+        color: var(--gold);
+        text-transform: uppercase;
+        font-size: .72rem;
+        letter-spacing: .1em;
+        font-weight: 1000;
+        margin-bottom: 4px;
+      }
+
+      .timeline-item, .rule-item {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="orb one"></div>
+  <div class="orb two"></div>
+  <div class="orb three"></div>
+
+  <div class="page">
+    <nav>
+      <div class="nav-brand">
+        <img src="https://bustedminds.us.kg/images/Busted-Minds-Logo.png" alt="Busted Minds Logo" />
+        <span>BMEC 2026</span>
+      </div>
+      <div class="nav-links">
+        <a href="#candidates">Candidates</a>
+        <a href="#features">Highlights</a>
+        <a href="#compare">Compare</a>
+        <a href="#rules">Rules</a>
+      </div>
+    </nav>
+
+    <header>
+      <div class="logo-wrap">
+        <img class="brand-logo" src="https://bustedminds.us.kg/images/Busted-Minds-Logo.png" alt="Busted Minds Logo" />
+      </div>
+      <div class="badge">🗳️ Official Election Portal</div>
+      <h1>Busted Minds<br><span class="gradient-text">Election 2026</span></h1>
+      <p class="subtitle">
+        Welcome to the most serious unserious election in group history. Three parties, three symbols, unlimited promises, and one legendary admin throne.
+      </p>
+      <div class="hero-actions">
+        <div class="pill">⚖️ Fair Election</div>
+        <div class="pill">📜 Manifestos Released</div>
+        <div class="pill">🔥 Campaign Mode On</div>
+        <div class="pill">😤 Copying Strictly Banned</div>
+      </div>
+
+      <div class="hero-card">
+        <div class="stat"><strong>3</strong><span>Official Parties</span></div>
+        <div class="stat"><strong>3</strong><span>Unique Symbols</span></div>
+        <div class="stat"><strong>1</strong><span>Winner</span></div>
+        <div class="stat"><strong>∞</strong><span>Expected Chaos</span></div>
+      </div>
+    </header>
+
+    <main>
+      <section class="section-title" id="candidates">
+        <h2>Official Candidates</h2>
+        <p>Read the manifestos, inspect the promises, judge the confidence, and prepare your vote carefully.</p>
+      </section>
+
+      <section class="party-grid">
+        <article class="party-card rbm">
+          <div class="symbol-row">
+            <div class="symbol">🧿</div>
+            <div class="candidate-number">Candidate <strong>01</strong></div>
+          </div>
+          <h3 class="party-name">Republic Party of Busted Minds</h3>
+          <p class="candidate">Candidate: <span>Mukilan R</span></p>
+          <div class="slogan">“Together we grow, explore and enjoy.”</div>
+          <div class="tag-row">
+            <span class="tag">🏏 Cricket</span>
+            <span class="tag">🌴 Kerala Trip</span>
+            <span class="tag">💪 Fitness</span>
+            <span class="tag">📋 Regulations</span>
+          </div>
+          <div class="manifesto-title">📌 Manifesto</div>
+          <ul>
+            <li>Busted Minds trip to Kerala.</li>
+            <li>Regular cricket sessions with free balls provided.</li>
+            <li>Useful debate sessions for the group.</li>
+            <li>Monthly leaderboard for physical activities.</li>
+            <li>New regulations on adding new members through SIR.</li>
+          </ul>
+        </article>
+
+        <article class="party-card blood">
+          <div class="symbol-row">
+            <div class="symbol">🥊</div>
+            <div class="candidate-number">Candidate <strong>02</strong></div>
+          </div>
+          <h3 class="party-name">Blood Hounds</h3>
+          <p class="candidate">Candidate: <span>Charan</span></p>
+          <div class="slogan">“No Slogan.”</div>
+          <div class="tag-row">
+            <span class="tag">🥊 Action</span>
+            <span class="tag">🤝 Diplomacy</span>
+            <span class="tag">⚡ Execution</span>
+            <span class="tag">🚫 No Ideology</span>
+          </div>
+          <div class="manifesto-title">📌 Manifesto</div>
+          <ul>
+            <li>No ideology, only action.</li>
+            <li>A strong bias to action.</li>
+            <li>Diplomacy when needed.</li>
+            <li>Execution over empty promises.</li>
+          </ul>
+        </article>
+
+        <article class="party-card vanguard">
+          <div class="symbol-row">
+            <div class="symbol">🛡️</div>
+            <div class="candidate-number">Candidate <strong>03</strong></div>
+          </div>
+          <h3 class="party-name">Vanguard</h3>
+          <p class="candidate">Candidate: <span>A. Amirtha Narayanan</span></p>
+          <div class="slogan">“One Team, One Vision.”</div>
+          <div class="tag-row">
+            <span class="tag">🤝 Brotherhood</span>
+            <span class="tag">🗣️ Equal Voice</span>
+            <span class="tag">🛡️ Unity</span>
+            <span class="tag">🎭 Fun + Discipline</span>
+          </div>
+          <div class="manifesto-title">📌 Manifesto</div>
+          <ul>
+            <li>Brotherhood first.</li>
+            <li>Equal voice for all.</li>
+            <li>Unity and strength.</li>
+            <li>Fun and discipline.</li>
+          </ul>
+        </article>
+      </section>
+
+      <section class="section-title" id="features">
+        <h2>Campaign Highlights</h2>
+        <p>The promises that could shape the future, happiness, and meme economy of Busted Minds.</p>
+      </section>
+
+      <section class="feature-grid">
+        <div class="feature">
+          <div class="icon">🌴</div>
+          <h3>Trip Promise</h3>
+          <p>RBM promises a Busted Minds trip to Kerala, bringing travel, fun, photos, and unavoidable budget arguments.</p>
+        </div>
+        <div class="feature">
+          <div class="icon">🏏</div>
+          <h3>Sports Push</h3>
+          <p>Regular cricket sessions and physical activity leaderboards aim to make the group less lazy and more competitive.</p>
+        </div>
+        <div class="feature">
+          <div class="icon">🥊</div>
+          <h3>Action Cabinet</h3>
+          <p>Blood Hounds stands for direct action, quick execution, and diplomacy only when chaos requires it.</p>
+        </div>
+        <div class="feature">
+          <div class="icon">🛡️</div>
+          <h3>Unity Agenda</h3>
+          <p>Vanguard focuses on brotherhood, equal voice, discipline, and a united group identity.</p>
+        </div>
+      </section>
+
+      <section class="comparison" id="compare">
+        <div class="panel-header">
+          <div>
+            <h2>Party Comparison</h2>
+            <p>A clean comparison before the great democratic chaos begins.</p>
+          </div>
+        </div>
+        <table>
+          <thead>
+            <tr>
+              <th>Party</th>
+              <th>Candidate</th>
+              <th>Symbol</th>
+              <th>Main Focus</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td data-label="Party">Republic Party of Busted Minds</td>
+              <td data-label="Candidate">Mukilan R</td>
+              <td data-label="Symbol">🧿</td>
+              <td data-label="Main Focus">Trips, cricket, debates, physical activity, and new member regulations.</td>
+            </tr>
+            <tr>
+              <td data-label="Party">Blood Hounds</td>
+              <td data-label="Candidate">Charan</td>
+              <td data-label="Symbol">🥊</td>
+              <td data-label="Main Focus">Action, diplomacy, fast execution, and no fixed ideology.</td>
+            </tr>
+            <tr>
+              <td data-label="Party">Vanguard</td>
+              <td data-label="Candidate">A. Amirtha Narayanan</td>
+              <td data-label="Symbol">🛡️</td>
+              <td data-label="Main Focus">Brotherhood, equal voice, unity, strength, fun, and discipline.</td>
+            </tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section class="timeline">
+        <div class="panel-header">
+          <div>
+            <h2>Election Timeline</h2>
+            <p>The official path from nominations to complete group-level democracy.</p>
+          </div>
+        </div>
+        <div class="timeline-list">
+          <div class="timeline-item">
+            <div class="timeline-dot">📥</div>
+            <div>
+              <h3>Nominations Received</h3>
+              <p>Parties submitted their names, candidates, symbols, manifestos, and slogans to the Election Commission.</p>
+            </div>
+          </div>
+          <div class="timeline-item">
+            <div class="timeline-dot">📢</div>
+            <div>
+              <h3>Manifestos Released</h3>
+              <p>All promises are now public so voters can compare ideas before supporting any candidate.</p>
+            </div>
+          </div>
+          <div class="timeline-item">
+            <div class="timeline-dot">🔥</div>
+            <div>
+              <h3>Campaign Period</h3>
+              <p>Candidates may campaign, explain policies, roast respectfully, and try to win public trust.</p>
+            </div>
+          </div>
+          <div class="timeline-item">
+            <div class="timeline-dot">🗳️</div>
+            <div>
+              <h3>Voting Begins</h3>
+              <p>Members vote based on candidates, policies, trust, vibes, and expected entertainment value.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="rules" id="rules">
+        <div class="panel-header">
+          <div>
+            <h2>BMEC Rules</h2>
+            <p>Because even chaos needs a little paperwork.</p>
+          </div>
+        </div>
+        <div class="rules-list">
+          <div class="rule-item">
+            <div class="rule-icon">⚖️</div>
+            <div>
+              <h3>Equal Treatment</h3>
+              <p>Every party gets the same space, same respect, and same chance to convince the people.</p>
+            </div>
+          </div>
+          <div class="rule-item">
+            <div class="rule-icon">🚫</div>
+            <div>
+              <h3>No Symbol Copying</h3>
+              <p>Each party must use a unique symbol. First claim gets priority.</p>
+            </div>
+          </div>
+          <div class="rule-item">
+            <div class="rule-icon">😤</div>
+            <div>
+              <h3>No Fake Promises Without Drama</h3>
+              <p>Promises may be funny, ambitious, or questionable, but voters have full right to question them.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="vote-banner">
+        <div>
+          <h2>Choose wisely. Roast responsibly.</h2>
+          <p>This election belongs to the people of Busted Minds. Read the manifestos, listen to campaigns, and vote for the future you want to suffer under.</p>
+        </div>
+        <button class="vote-button">Democracy Loading...</button>
+      </section>
+    </main>
+
+    <footer>
+      <div class="footer-card">
+        Conducted under the supervision of the Busted Minds Election Commission. Neutrality maintained. Copying prevented. Chaos approved.
+      </div>
+    </footer>
+  </div>
+</body>
+</html>
