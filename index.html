@@ -396,6 +396,10 @@ h1 {
   margin-top: 20px;
 }
 
+.game-actions {
+  justify-content: flex-start;
+}
+
 .fun-btn {
   border: 1px solid rgba(255,255,255,.18);
   background: rgba(255,255,255,.1);
@@ -447,7 +451,7 @@ main {
 .party-card {
   --accent: var(--cyan);
   position: relative;
-  min-height: 670px;
+  min-height: 620px;
   padding: 26px;
   border-radius: 36px;
   background: linear-gradient(150deg, rgba(255,255,255,.135), rgba(255,255,255,.045));
@@ -621,6 +625,31 @@ li::before {
   margin-top: 1px;
 }
 
+.manifesto-extra {
+  display: none;
+}
+
+.manifesto-list.expanded .manifesto-extra {
+  display: flex;
+}
+
+.manifesto-toggle {
+  width: 100%;
+  margin-top: 14px;
+  border: 1px solid rgba(255,255,255,.18);
+  background: rgba(255,255,255,.1);
+  color: var(--text);
+  padding: 11px 14px;
+  border-radius: 16px;
+  font-weight: 950;
+  transition: .18s ease;
+}
+
+.manifesto-toggle:hover {
+  background: rgba(255,255,255,.15);
+  transform: translateY(-2px);
+}
+
 .feature-grid {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
@@ -659,7 +688,7 @@ li::before {
   font-size: .92rem;
 }
 
-.comparison, .timeline, .rules, .fun-zone, .quiz-card {
+.comparison, .timeline, .rules, .fun-zone, .voter-tools {
   margin-top: 28px;
   border-radius: 36px;
   background: rgba(255,255,255,.075);
@@ -757,58 +786,187 @@ tr:last-child td {
   font-size: .94rem;
 }
 
-.fun-content {
+.game-grid {
   padding: 24px;
   display: grid;
-  grid-template-columns: 1.1fr .9fr;
+  grid-template-columns: 1fr 1fr;
   gap: 18px;
 }
 
-.quote-card, .chaos-card, .pledge-card {
+.game-card {
   padding: 22px;
   border-radius: 28px;
   background: rgba(255,255,255,.075);
   border: 1px solid rgba(255,255,255,.12);
 }
 
-.quote-card h3, .chaos-card h3, .pledge-card h3, .quiz-card h3 {
+.game-card h3 {
   margin-bottom: 10px;
   font-size: 1.2rem;
 }
 
-.quote-text {
+.game-copy {
+  color: var(--muted);
+  line-height: 1.55;
+  font-size: .94rem;
+  margin-bottom: 16px;
+}
+
+.game-stats {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+  margin-bottom: 16px;
+}
+
+.game-stats div {
+  padding: 12px;
+  border-radius: 18px;
+  background: rgba(255,255,255,.08);
+  border: 1px solid rgba(255,255,255,.12);
+}
+
+.game-stats span {
+  display: block;
+  color: var(--muted);
+  font-size: .72rem;
+  font-weight: 1000;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+}
+
+.game-stats strong {
+  display: block;
+  margin-top: 5px;
+  font-size: 1.35rem;
+  letter-spacing: -.04em;
+}
+
+.target-line {
+  padding: 12px 14px;
+  border-radius: 18px;
+  background: rgba(250,204,21,.1);
+  border: 1px solid rgba(250,204,21,.22);
+  color: #fde68a;
+  font-weight: 950;
+  line-height: 1.45;
+  margin-bottom: 14px;
+}
+
+.symbol-arena {
+  position: relative;
+  height: 260px;
+  border-radius: 24px;
+  background:
+    linear-gradient(135deg, rgba(56,189,248,.12), rgba(251,113,133,.1), rgba(167,139,250,.12)),
+    rgba(255,255,255,.06);
+  border: 1px solid rgba(255,255,255,.13);
+  overflow: hidden;
+}
+
+.symbol-token {
+  position: absolute;
+  width: 70px;
+  height: 70px;
+  display: grid;
+  place-items: center;
+  border: 1px solid rgba(255,255,255,.2);
+  border-radius: 22px;
+  background: rgba(255,255,255,.12);
+  color: var(--text);
+  font-size: 2.4rem;
+  box-shadow: 0 18px 44px rgba(0,0,0,.25);
+  transition: transform .16s ease, left .35s ease, top .35s ease, background .16s ease;
+}
+
+.symbol-token:hover {
+  transform: scale(1.08);
+  background: rgba(255,255,255,.18);
+}
+
+.promise-card {
+  min-height: 126px;
+  display: grid;
+  place-items: center;
+  padding: 20px;
+  border-radius: 24px;
+  background: rgba(255,255,255,.09);
+  border: 1px solid rgba(255,255,255,.14);
+  color: #f8fafc;
+  font-weight: 950;
+  line-height: 1.55;
+  text-align: center;
+}
+
+.party-choice-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+  margin-top: 16px;
+}
+
+.party-choice {
+  border: 1px solid rgba(255,255,255,.14);
+  background: rgba(255,255,255,.075);
+  color: var(--text);
+  padding: 14px;
+  border-radius: 18px;
+  font-weight: 900;
+  text-align: left;
+  transition: .18s ease;
+}
+
+.party-choice:hover:not(:disabled) {
+  background: rgba(255,255,255,.13);
+  transform: translateY(-3px);
+}
+
+.party-choice:disabled {
+  cursor: not-allowed;
+  opacity: .62;
+}
+
+.game-message {
+  margin-top: 16px;
+  padding: 16px;
+  border-radius: 20px;
+  background: rgba(250,204,21,.1);
+  border: 1px solid rgba(250,204,21,.22);
+  color: #fde68a;
+  font-weight: 950;
+  line-height: 1.55;
+}
+
+.tool-grid {
+  padding: 24px;
+  display: grid;
+  grid-template-columns: .9fr 1.1fr;
+  gap: 18px;
+}
+
+.tool-card {
+  padding: 22px;
+  border-radius: 28px;
+  background: rgba(255,255,255,.075);
+  border: 1px solid rgba(255,255,255,.12);
+}
+
+.tool-card h3 {
+  margin-bottom: 10px;
+  font-size: 1.2rem;
+}
+
+.pledge-text {
   color: #f8fafc;
   line-height: 1.65;
   font-weight: 850;
   min-height: 72px;
 }
 
-.chaos-bar {
-  width: 100%;
-  height: 18px;
-  background: rgba(255,255,255,.12);
-  border-radius: 999px;
-  overflow: hidden;
-  border: 1px solid rgba(255,255,255,.14);
-  margin: 14px 0 10px;
-}
-
-.chaos-fill {
-  width: 78%;
-  height: 100%;
-  border-radius: 999px;
-  background: linear-gradient(90deg, var(--emerald), var(--gold), var(--rose));
-  transition: width .45s ease;
-}
-
-.chaos-label {
-  color: var(--muted);
-  font-weight: 850;
-  line-height: 1.5;
-}
-
-.quiz-card {
-  padding: 24px;
+.quiz-question {
+  color: #f8fafc;
+  font-weight: 950;
+  line-height: 1.45;
 }
 
 .quiz-grid {
@@ -935,7 +1093,7 @@ footer {
 }
 
 @media (max-width: 1040px) {
-  .party-grid, .feature-grid, .fun-content {
+  .party-grid, .feature-grid, .game-grid, .tool-grid {
     grid-template-columns: 1fr;
   }
 
@@ -1050,7 +1208,7 @@ footer {
     font-size: .82rem;
   }
 
-  .hero-card, .countdown-grid, .quiz-grid {
+  .hero-card, .countdown-grid, .party-choice-grid, .quiz-grid {
     grid-template-columns: 1fr 1fr;
     gap: 10px;
     margin-top: 26px;
@@ -1134,7 +1292,7 @@ footer {
       <div class="nav-links">
         <a href="#candidates">Candidates</a>
         <a href="#features">Highlights</a>
-        <a href="#fun">Fun Zone</a>
+        <a href="#fun">Games</a>
         <a href="#quiz">Quiz</a>
         <a href="#compare">Compare</a>
         <a href="#rules">Rules</a>
@@ -1185,8 +1343,10 @@ footer {
     </div>
     <div class="fun-buttons">
       <button class="fun-btn" onclick="startDemocracy()">🎉 Start Democracy</button>
-      <button class="fun-btn" onclick="newQuote()">🎙️ Random Campaign Quote</button>
-      <button class="fun-btn" onclick="increaseChaos()">🔥 Increase Chaos</button>
+      <button class="fun-btn" onclick="scrollToTools('pledge')">🗳️ Vote Pledge</button>
+      <button class="fun-btn" onclick="scrollToTools('quiz')">🧭 Take Quiz</button>
+      <button class="fun-btn" onclick="scrollToGames('sprint')">🎯 Play Symbol Sprint</button>
+      <button class="fun-btn" onclick="scrollToGames('match')">🧠 Manifesto Match</button>
     </div>
   </section>
 </header>
@@ -1260,21 +1420,22 @@ footer {
         <span class="tag">🎭 Fun + Discipline</span>
       </div>
       <div class="manifesto-title">📌 Manifesto</div>
-      <ul>
+      <ul class="manifesto-list">
         <li>Brotherhood first.</li>
         <li>Equal voice for all.</li>
         <li>Unity and strength.</li>
         <li>Fun and discipline.</li>
         <li>Loyalty Rule — No backtalk behind a member’s back. Issues are handled directly.</li>
-        <li>Respect Code — No insults that cross limits. Fun is fine, disrespect isn’t.</li>
-        <li>Equal Say Policy — Everyone gets a voice; final decisions follow majority or leader call.</li>
-        <li>Discipline Standard — Time, commitments, and plans are taken seriously. No last-minute flaking.</li>
-        <li>Accountability Rule — Own your mistakes. No excuses, only solutions.</li>
-        <li>Unity Rule — No internal divisions. Outside problems, we stand together.</li>
-        <li>Privacy Code — What’s shared in the group stays in the group.</li>
-        <li>Support System — Help each other in studies, work, or personal struggles.</li>
-        <li>Stay Sharp — Fitness, mindset, and growth are part of the culture.</li>
+        <li class="manifesto-extra">Respect Code — No insults that cross limits. Fun is fine, disrespect isn’t.</li>
+        <li class="manifesto-extra">Equal Say Policy — Everyone gets a voice; final decisions follow majority or leader call.</li>
+        <li class="manifesto-extra">Discipline Standard — Time, commitments, and plans are taken seriously. No last-minute flaking.</li>
+        <li class="manifesto-extra">Accountability Rule — Own your mistakes. No excuses, only solutions.</li>
+        <li class="manifesto-extra">Unity Rule — No internal divisions. Outside problems, we stand together.</li>
+        <li class="manifesto-extra">Privacy Code — What’s shared in the group stays in the group.</li>
+        <li class="manifesto-extra">Support System — Help each other in studies, work, or personal struggles.</li>
+        <li class="manifesto-extra">Stay Sharp — Fitness, mindset, and growth are part of the culture.</li>
       </ul>
+      <button class="manifesto-toggle" type="button" aria-expanded="false" onclick="toggleManifesto(event, this)">Show more</button>
     </article>
   </section>
 
@@ -1307,58 +1468,95 @@ footer {
   </section>
 
   <section class="section-title" id="fun">
-    <h2>Fun Zone</h2>
-    <p>Officially unnecessary features approved by the Ministry of Maximum Chaos.</p>
+    <h2>Campaign Games</h2>
+    <p>Score-based games for reflexes, memory, and manifesto knowledge.</p>
   </section>
 
   <section class="fun-zone">
     <div class="panel-header">
       <div>
-        <h2>Election Entertainment Dashboard</h2>
-        <p>Generate quotes, measure chaos, and pledge your democratic readiness.</p>
+        <h2>Election Game Arcade</h2>
+        <p>Click the right symbols under pressure, then prove you know which party promised what.</p>
       </div>
     </div>
-    <div class="fun-content">
-      <div class="quote-card">
-        <h3>🎙️ Campaign Quote Generator</h3>
-        <p class="quote-text" id="quoteText">“Democracy is temporary. Group screenshots are forever.”</p>
-        <div class="fun-buttons" style="justify-content:flex-start">
-          <button class="fun-btn" onclick="newQuote()">Generate Quote</button>
+    <div class="game-grid">
+      <div class="game-card" id="symbolSprint">
+        <h3>🎯 Symbol Sprint</h3>
+        <p class="game-copy">A 30-second reflex round. Hit only the symbol named in the target box.</p>
+        <div class="game-stats">
+          <div><span>Score</span><strong id="sprintScore">0</strong></div>
+          <div><span>Time</span><strong id="sprintTime">30</strong></div>
+          <div><span>Streak</span><strong id="sprintStreak">0</strong></div>
+        </div>
+        <div class="target-line">Target: <strong id="sprintTarget">Press start</strong></div>
+        <div class="symbol-arena" id="symbolArena">
+          <button class="symbol-token" type="button" data-party="rbm" onclick="hitSymbol('rbm')">🧿</button>
+          <button class="symbol-token" type="button" data-party="blood" onclick="hitSymbol('blood')">🥊</button>
+          <button class="symbol-token" type="button" data-party="vanguard" onclick="hitSymbol('vanguard')">🛡️</button>
+        </div>
+        <div class="game-message" id="sprintMessage">Press start, follow the target, and avoid wrong symbols.</div>
+        <div class="fun-buttons game-actions">
+          <button class="fun-btn" type="button" onclick="startSymbolSprint()">Start Round</button>
+          <button class="fun-btn" type="button" onclick="resetSymbolSprint()">Reset</button>
         </div>
       </div>
-      <div class="chaos-card">
-        <h3>🔥 Chaos Meter</h3>
-        <div class="chaos-bar"><div class="chaos-fill" id="chaosFill"></div></div>
-        <p class="chaos-label" id="chaosLabel">Current status: Manageable chaos with mild manifesto tension.</p>
-        <div class="fun-buttons" style="justify-content:flex-start">
-          <button class="fun-btn" onclick="increaseChaos()">Add Chaos</button>
-          <button class="fun-btn" onclick="resetChaos()">Reset</button>
+
+      <div class="game-card" id="manifestoMatch">
+        <h3>🧠 Manifesto Match</h3>
+        <p class="game-copy">Match each promise to the correct party. Fast, simple, and actually useful before voting.</p>
+        <div class="game-stats">
+          <div><span>Score</span><strong id="matchScore">0</strong></div>
+          <div><span>Round</span><strong id="matchRound">0/0</strong></div>
+          <div><span>Best</span><strong id="matchBest">0</strong></div>
         </div>
-      </div>
-      <div class="pledge-card">
-        <h3>🗳️ Vote Pledge</h3>
-        <p class="quote-text" id="pledgeText">Press the button to declare yourself mentally prepared for democracy.</p>
-        <div class="fun-buttons" style="justify-content:flex-start">
-          <button class="fun-btn" onclick="pledgeVote()">I Am Ready To Vote</button>
+        <div class="promise-card" id="promiseText">Press start to load the first promise.</div>
+        <div class="party-choice-grid" id="matchChoices">
+          <button class="party-choice" type="button" onclick="answerPromise('rbm')">🧿 RBM</button>
+          <button class="party-choice" type="button" onclick="answerPromise('blood')">🥊 Blood Hounds</button>
+          <button class="party-choice" type="button" onclick="answerPromise('vanguard')">🛡️ Vanguard</button>
+        </div>
+        <div class="game-message" id="matchMessage">Start a round and pick the party behind each promise.</div>
+        <div class="fun-buttons game-actions">
+          <button class="fun-btn" type="button" onclick="startPromiseMatch()">Start Match</button>
+          <button class="fun-btn" type="button" onclick="resetPromiseMatch()">Reset</button>
         </div>
       </div>
     </div>
   </section>
 
   <section class="section-title" id="quiz">
-    <h2>Vote Compass Quiz</h2>
-    <p>A completely unofficial, scientifically questionable quiz to match your vibes with a party.</p>
+    <h2>Voter Tools</h2>
+    <p>The pledge and vote compass are back because they actually fit the election vibe.</p>
   </section>
 
-  <section class="quiz-card">
-    <h3 id="quizQuestion">What do you want most from the next admin?</h3>
-    <div class="quiz-grid" id="quizOptions">
-      <button class="quiz-option" onclick="answerQuiz('rbm')">Trips, cricket, and activities</button>
-      <button class="quiz-option" onclick="answerQuiz('blood')">Thoughtful decisions and execution</button>
-      <button class="quiz-option" onclick="answerQuiz('vanguard')">Unity and equal voice</button>
-      <button class="quiz-option" onclick="answerQuiz('chaos')">Maximum entertainment</button>
+  <section class="voter-tools">
+    <div class="panel-header">
+      <div>
+        <h2>Vote Pledge & Compass</h2>
+        <p>Declare readiness, then check which party best matches your mood.</p>
+      </div>
     </div>
-    <div class="quiz-result" id="quizResult"></div>
+    <div class="tool-grid">
+      <div class="tool-card" id="votePledge">
+        <h3>🗳️ Vote Pledge</h3>
+        <p class="pledge-text" id="pledgeText">Press the button to declare yourself mentally prepared for democracy.</p>
+        <div class="fun-buttons game-actions">
+          <button class="fun-btn" type="button" onclick="pledgeVote()">I Am Ready To Vote</button>
+        </div>
+      </div>
+
+      <div class="tool-card" id="voteCompass">
+        <h3>🧭 Vote Compass Quiz</h3>
+        <p class="quiz-question" id="quizQuestion">What do you want most from the next admin?</p>
+        <div class="quiz-grid" id="quizOptions">
+          <button class="quiz-option" type="button" onclick="answerQuiz('rbm')">Trips, cricket, and activities</button>
+          <button class="quiz-option" type="button" onclick="answerQuiz('blood')">Thoughtful decisions and execution</button>
+          <button class="quiz-option" type="button" onclick="answerQuiz('vanguard')">Unity and equal voice</button>
+          <button class="quiz-option" type="button" onclick="answerQuiz('chaos')">Maximum entertainment</button>
+        </div>
+        <div class="quiz-result" id="quizResult"></div>
+      </div>
+    </div>
   </section>
 
   <section class="comparison" id="compare">
@@ -1482,22 +1680,51 @@ footer {
 
 <footer>
   <div class="footer-card">
-    Conducted under the supervision of the Busted Minds Election Commission. Neutrality maintained. Copying prevented. Chaos approved.
+    Conducted under the supervision of the Busted Minds Election Commission(BMEC)
   </div>
 </footer>
 
   </div>  <script>
     const electionDate = new Date('2026-05-12T20:00:00+05:30');
-    const quotes = [
-      '“Democracy is temporary. Group screenshots are forever.”',
-      '“One vote can change history. One roast can change the group mood.”',
-      '“Manifestos may fade, but campaign drama is eternal.”',
-      '“BMEC confirms: vibes are not a legal voting method, but they matter.”',
-      '“Promise less, execute more, forward fewer cringe messages.”',
-      '“In Busted Minds, every vote counts and every reply gets judged.”',
-      '“The future belongs to those who campaign before the admin mutes them.”'
+    const partyNames = {
+      rbm: 'Republic Party of Busted Minds',
+      blood: 'Blood Hounds',
+      vanguard: 'Vanguard'
+    };
+    const partySymbols = {
+      rbm: '🧿',
+      blood: '🥊',
+      vanguard: '🛡️'
+    };
+    const promiseDeck = [
+      { party: 'rbm', text: 'Busted Minds trip to Kerala.' },
+      { party: 'rbm', text: 'Regular cricket sessions with free balls provided.' },
+      { party: 'rbm', text: 'Monthly leaderboard for physical activities.' },
+      { party: 'blood', text: 'We think before we act.' },
+      { party: 'blood', text: 'Discussion guides decisions before execution.' },
+      { party: 'blood', text: 'Diplomacy when needed.' },
+      { party: 'vanguard', text: 'Brotherhood first.' },
+      { party: 'vanguard', text: 'Equal voice for all.' },
+      { party: 'vanguard', text: 'Privacy and support stay protected inside the group.' }
     ];
-    let chaos = 78;
+    const sprint = {
+      active: false,
+      score: 0,
+      streak: 0,
+      time: 30,
+      target: null,
+      timer: null,
+      mover: null
+    };
+    const match = {
+      active: false,
+      locked: false,
+      score: 0,
+      best: 0,
+      round: 0,
+      deck: [],
+      current: null
+    };
 
     function updateCountdown() {
       const now = new Date();
@@ -1526,35 +1753,30 @@ footer {
         document.body.appendChild(piece);
         setTimeout(() => piece.remove(), 2300);
       }
-      increaseChaos(8);
     }
 
-    function newQuote() {
-      const quoteText = document.getElementById('quoteText');
-      quoteText.textContent = quotes[Math.floor(Math.random() * quotes.length)];
-      quoteText.animate([
-        { transform: 'scale(.98)', opacity: .4 },
-        { transform: 'scale(1)', opacity: 1 }
-      ], { duration: 250, easing: 'ease-out' });
+    function toggleManifesto(event, button) {
+      event.stopPropagation();
+      const list = button.previousElementSibling;
+      const expanded = list.classList.toggle('expanded');
+      button.textContent = expanded ? 'Show less' : 'Show more';
+      button.setAttribute('aria-expanded', String(expanded));
     }
 
-    function updateChaos() {
-      document.getElementById('chaosFill').style.width = chaos + '%';
-      const label = document.getElementById('chaosLabel');
-      if (chaos < 35) label.textContent = 'Current status: Suspiciously peaceful. Something is wrong.';
-      else if (chaos < 65) label.textContent = 'Current status: Normal election tension with mild roasting.';
-      else if (chaos < 90) label.textContent = 'Current status: Manageable chaos with manifesto-level drama.';
-      else label.textContent = 'Current status: Constitutional crisis. BMEC intervention recommended.';
+    function scrollToGames(game) {
+      document.getElementById('fun').scrollIntoView({ behavior: 'smooth', block: 'start' });
+      const starter = game === 'match' ? startPromiseMatch : startSymbolSprint;
+      setTimeout(starter, 350);
     }
 
-    function increaseChaos(amount = 12) {
-      chaos = Math.min(100, chaos + amount);
-      updateChaos();
-    }
-
-    function resetChaos() {
-      chaos = 24;
-      updateChaos();
+    function scrollToTools(tool) {
+      document.getElementById('quiz').scrollIntoView({ behavior: 'smooth', block: 'start' });
+      if (tool === 'pledge') {
+        setTimeout(() => document.getElementById('votePledge').animate([
+          { transform: 'scale(.98)', opacity: .75 },
+          { transform: 'scale(1)', opacity: 1 }
+        ], { duration: 260, easing: 'ease-out' }), 350);
+      }
     }
 
     function pledgeVote() {
@@ -1578,17 +1800,180 @@ footer {
       ], { duration: 260, easing: 'ease-out' });
     }
 
+    function randomParty() {
+      const parties = Object.keys(partySymbols);
+      return parties[Math.floor(Math.random() * parties.length)];
+    }
+
+    function updateSprintStats() {
+      document.getElementById('sprintScore').textContent = sprint.score;
+      document.getElementById('sprintTime').textContent = sprint.time;
+      document.getElementById('sprintStreak').textContent = sprint.streak;
+    }
+
+    function setSprintTarget() {
+      sprint.target = randomParty();
+      document.getElementById('sprintTarget').textContent = `${partySymbols[sprint.target]} ${partyNames[sprint.target]}`;
+    }
+
+    function moveSymbols() {
+      const arena = document.getElementById('symbolArena');
+      const maxX = Math.max(arena.clientWidth - 76, 0);
+      const maxY = Math.max(arena.clientHeight - 76, 0);
+      document.querySelectorAll('.symbol-token').forEach(token => {
+        token.style.left = `${Math.round(Math.random() * maxX)}px`;
+        token.style.top = `${Math.round(Math.random() * maxY)}px`;
+      });
+    }
+
+    function startSymbolSprint() {
+      resetSymbolSprint();
+      sprint.active = true;
+      setSprintTarget();
+      moveSymbols();
+      document.getElementById('sprintMessage').textContent = 'Round live. Hit the target symbol as fast as you can.';
+      sprint.timer = setInterval(() => {
+        sprint.time -= 1;
+        updateSprintStats();
+        if (sprint.time <= 0) endSymbolSprint();
+      }, 1000);
+      sprint.mover = setInterval(moveSymbols, 850);
+    }
+
+    function hitSymbol(party) {
+      if (!sprint.active) {
+        document.getElementById('sprintMessage').textContent = 'Press Start Round before clicking symbols.';
+        return;
+      }
+
+      const isCorrect = party === sprint.target;
+      sprint.streak = isCorrect ? sprint.streak + 1 : 0;
+      sprint.score = Math.max(0, sprint.score + (isCorrect ? 10 + sprint.streak : -5));
+      document.getElementById('sprintMessage').textContent = isCorrect
+        ? `Correct. ${partyNames[party]} hit.`
+        : `Wrong symbol. Target was ${partySymbols[sprint.target]} ${partyNames[sprint.target]}.`;
+      setSprintTarget();
+      updateSprintStats();
+      moveSymbols();
+    }
+
+    function endSymbolSprint() {
+      sprint.active = false;
+      clearInterval(sprint.timer);
+      clearInterval(sprint.mover);
+      document.getElementById('sprintTarget').textContent = 'Round over';
+      document.getElementById('sprintMessage').textContent = `Final score: ${sprint.score}. ${sprint.score >= 120 ? 'Elite campaign reflexes.' : 'Run it back for a cleaner score.'}`;
+    }
+
+    function resetSymbolSprint() {
+      clearInterval(sprint.timer);
+      clearInterval(sprint.mover);
+      sprint.active = false;
+      sprint.score = 0;
+      sprint.streak = 0;
+      sprint.time = 30;
+      sprint.target = null;
+      document.getElementById('sprintTarget').textContent = 'Press start';
+      document.getElementById('sprintMessage').textContent = 'Press start, follow the target, and avoid wrong symbols.';
+      updateSprintStats();
+      moveSymbols();
+    }
+
+    function shuffleCards(cards) {
+      return cards
+        .map(card => ({ card, sort: Math.random() }))
+        .sort((a, b) => a.sort - b.sort)
+        .map(({ card }) => card);
+    }
+
+    function updateMatchStats() {
+      document.getElementById('matchScore').textContent = match.score;
+      document.getElementById('matchRound').textContent = `${Math.min(match.round + 1, match.deck.length)}/${match.deck.length || 0}`;
+      document.getElementById('matchBest').textContent = match.best;
+    }
+
+    function setMatchChoicesDisabled(disabled) {
+      document.querySelectorAll('#matchChoices button').forEach(button => {
+        button.disabled = disabled;
+      });
+    }
+
+    function startPromiseMatch() {
+      match.active = true;
+      match.locked = false;
+      match.score = 0;
+      match.round = 0;
+      match.deck = shuffleCards(promiseDeck);
+      match.current = null;
+      setMatchChoicesDisabled(false);
+      nextPromise();
+    }
+
+    function nextPromise() {
+      if (match.round >= match.deck.length) {
+        endPromiseMatch();
+        return;
+      }
+
+      match.locked = false;
+      match.current = match.deck[match.round];
+      document.getElementById('promiseText').textContent = match.current.text;
+      document.getElementById('matchMessage').textContent = 'Choose the party that owns this promise.';
+      updateMatchStats();
+      setMatchChoicesDisabled(false);
+    }
+
+    function answerPromise(party) {
+      if (!match.active || match.locked || !match.current) {
+        document.getElementById('matchMessage').textContent = 'Press Start Match to begin.';
+        return;
+      }
+
+      const correct = party === match.current.party;
+      match.locked = true;
+      match.score = Math.max(0, match.score + (correct ? 10 : -4));
+      document.getElementById('matchMessage').textContent = correct
+        ? `Correct. That promise belongs to ${partyNames[party]}.`
+        : `Wrong. Correct answer: ${partyNames[match.current.party]}.`;
+      setMatchChoicesDisabled(true);
+      match.round += 1;
+      match.best = Math.max(match.best, match.score);
+      updateMatchStats();
+      setTimeout(nextPromise, 760);
+    }
+
+    function endPromiseMatch() {
+      match.active = false;
+      match.current = null;
+      setMatchChoicesDisabled(true);
+      document.getElementById('promiseText').textContent = 'Match complete.';
+      document.getElementById('matchMessage').textContent = `Final score: ${match.score}/${promiseDeck.length * 10}. ${match.score >= 70 ? 'Manifesto knowledge approved.' : 'Review the candidate cards and try again.'}`;
+      updateMatchStats();
+    }
+
+    function resetPromiseMatch() {
+      match.active = false;
+      match.locked = false;
+      match.score = 0;
+      match.round = 0;
+      match.deck = [];
+      match.current = null;
+      document.getElementById('promiseText').textContent = 'Press start to load the first promise.';
+      document.getElementById('matchMessage').textContent = 'Start a round and pick the party behind each promise.';
+      setMatchChoicesDisabled(false);
+      updateMatchStats();
+    }
+
     document.querySelectorAll('.party-card').forEach(card => {
       card.addEventListener('click', () => {
         document.querySelectorAll('.party-card').forEach(c => c.classList.remove('active'));
         card.classList.add('active');
-        const party = card.getAttribute('data-party');
-        document.getElementById('quoteText').textContent = `“${party} campaign mode activated. Public judgement has begun.”`;
       });
     });
 
     setInterval(updateCountdown, 1000);
     updateCountdown();
-    updateChaos();
+    resetSymbolSprint();
+    resetPromiseMatch();
   </script></body>
 </html>
