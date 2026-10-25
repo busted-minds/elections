@@ -501,7 +501,6 @@ main {
 
 .party-card.rbm { --accent: rgba(56, 189, 248, .8); }
 .party-card.blood { --accent: rgba(251, 113, 133, .82); }
-.party-card.vanguard { --accent: rgba(167, 139, 250, .85); }
 
 .symbol-row {
   display: flex;
@@ -625,34 +624,9 @@ li::before {
   margin-top: 1px;
 }
 
-.manifesto-extra {
-  display: none;
-}
-
-.manifesto-list.expanded .manifesto-extra {
-  display: flex;
-}
-
-.manifesto-toggle {
-  width: 100%;
-  margin-top: 14px;
-  border: 1px solid rgba(255,255,255,.18);
-  background: rgba(255,255,255,.1);
-  color: var(--text);
-  padding: 11px 14px;
-  border-radius: 16px;
-  font-weight: 950;
-  transition: .18s ease;
-}
-
-.manifesto-toggle:hover {
-  background: rgba(255,255,255,.15);
-  transform: translateY(-2px);
-}
-
 .feature-grid {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(3, 1fr);
   gap: 16px;
   margin-top: 28px;
 }
@@ -1286,7 +1260,7 @@ footer {
   </div>  <div class="page">
     <nav>
       <div class="nav-brand">
-        <img src="https://bustedminds.us.kg/images/Busted-Minds-Logo.png" alt="Busted Minds Logo" />
+        <img src="https://bustedminds.org/brand/busted-minds-logo.png" alt="Busted Minds Logo" />
         <span>BMEC 2026</span>
       </div>
       <div class="nav-links">
@@ -1300,37 +1274,37 @@ footer {
     </nav><div class="ticker">
   <div class="ticker-track">
     <span>🚨 Breaking: Campaign chaos officially detected</span>
-    <span>🗳️ Election Day: May 12, 2026</span>
+    <span>🗳️ Election Day: October 25, 2026</span>
     <span>⚖️ BMEC says: roast responsibly</span>
     <span>😤 Copying symbols is unconstitutional behaviour</span>
     <span>🔥 Manifestos are public, drama is expected</span>
     <span>🚨 Breaking: Campaign chaos officially detected</span>
-    <span>🗳️ Election Day: May 12, 2026</span>
+    <span>🗳️ Election Day: October 25, 2026</span>
   </div>
 </div>
 
 <header>
   <div class="logo-wrap">
-    <img class="brand-logo" src="https://bustedminds.us.kg/images/Busted-Minds-Logo.png" alt="Busted Minds Logo" />
+    <img class="brand-logo" src="https://bustedminds.org/brand/busted-minds-logo.png" alt="Busted Minds Logo" />
   </div>
   <div class="badge">🗳️ Official Election Portal</div>
   <h1>Busted Minds<br><span class="gradient-text">Election 2026</span></h1>
   <p class="subtitle">
-    Welcome to the most serious unserious election in group history. Three parties, three symbols, unlimited promises, and one legendary admin throne.
+    Welcome to the most serious unserious election in group history. Two parties, two symbols, unlimited promises, and one legendary admin throne.
   </p>
   <div class="hero-actions">
     <div class="pill">⚖️ Fair Election</div>
     <div class="pill">📜 Manifestos Released</div>
     <div class="pill">🔥 Campaign Mode On</div>
-    <div class="pill">📅 Election: May 12, 2026</div>
+    <div class="pill">📅 Election: October 25, 2026</div>
     <div class="pill">😤 Copying Strictly Banned</div>
   </div>
 
   <div class="hero-card">
-    <div class="stat"><strong>3</strong><span>Official Parties</span></div>
-    <div class="stat"><strong>3</strong><span>Unique Symbols</span></div>
+    <div class="stat"><strong>2</strong><span>Official Parties</span></div>
+    <div class="stat"><strong>2</strong><span>Unique Symbols</span></div>
     <div class="stat"><strong>1</strong><span>Winner</span></div>
-    <div class="stat"><strong>May 12</strong><span>Election Day</span></div>
+    <div class="stat"><strong>Oct 25</strong><span>Election Day</span></div>
   </div>
 
   <section class="countdown">
@@ -1379,6 +1353,7 @@ footer {
         <li>Useful debate sessions for the group.</li>
         <li>Monthly leaderboard for physical activities.</li>
         <li>New regulations on adding new members through SIR.</li>
+        <li>Admin access for everyone except Pravin and Charan.</li>
       </ul>
     </article>
 
@@ -1405,38 +1380,6 @@ footer {
       </ul>
     </article>
 
-    <article class="party-card vanguard" data-party="Vanguard">
-      <div class="symbol-row">
-        <div class="symbol">🛡️</div>
-        <div class="candidate-number">Candidate <strong>03</strong></div>
-      </div>
-      <h3 class="party-name">Vanguard</h3>
-      <p class="candidate">Candidate: <span>A. Amirtha Narayanan</span></p>
-      <div class="slogan">“One Team, One Vision.”</div>
-      <div class="tag-row">
-        <span class="tag">🤝 Brotherhood</span>
-        <span class="tag">🗣️ Equal Voice</span>
-        <span class="tag">🛡️ Unity</span>
-        <span class="tag">🎭 Fun + Discipline</span>
-      </div>
-      <div class="manifesto-title">📌 Manifesto</div>
-      <ul class="manifesto-list">
-        <li>Brotherhood first.</li>
-        <li>Equal voice for all.</li>
-        <li>Unity and strength.</li>
-        <li>Fun and discipline.</li>
-        <li>Loyalty Rule — No backtalk behind a member’s back. Issues are handled directly.</li>
-        <li class="manifesto-extra">Respect Code — No insults that cross limits. Fun is fine, disrespect isn’t.</li>
-        <li class="manifesto-extra">Equal Say Policy — Everyone gets a voice; final decisions follow majority or leader call.</li>
-        <li class="manifesto-extra">Discipline Standard — Time, commitments, and plans are taken seriously. No last-minute flaking.</li>
-        <li class="manifesto-extra">Accountability Rule — Own your mistakes. No excuses, only solutions.</li>
-        <li class="manifesto-extra">Unity Rule — No internal divisions. Outside problems, we stand together.</li>
-        <li class="manifesto-extra">Privacy Code — What’s shared in the group stays in the group.</li>
-        <li class="manifesto-extra">Support System — Help each other in studies, work, or personal struggles.</li>
-        <li class="manifesto-extra">Stay Sharp — Fitness, mindset, and growth are part of the culture.</li>
-      </ul>
-      <button class="manifesto-toggle" type="button" aria-expanded="false" onclick="toggleManifesto(event, this)">Show more</button>
-    </article>
   </section>
 
   <section class="section-title" id="features">
@@ -1459,11 +1402,6 @@ footer {
       <div class="icon">🥊</div>
       <h3>Thinking Cabinet</h3>
       <p>Blood Hounds stands for thinking first, discussing clearly, and acting only after the decision is made.</p>
-    </div>
-    <div class="feature">
-      <div class="icon">🛡️</div>
-      <h3>Unity Agenda</h3>
-      <p>Vanguard focuses on loyalty, respect, equal voice, discipline, accountability, privacy, support, fitness, and unity.</p>
     </div>
   </section>
 
@@ -1492,7 +1430,6 @@ footer {
         <div class="symbol-arena" id="symbolArena">
           <button class="symbol-token" type="button" data-party="rbm" onclick="hitSymbol('rbm')">🧿</button>
           <button class="symbol-token" type="button" data-party="blood" onclick="hitSymbol('blood')">🥊</button>
-          <button class="symbol-token" type="button" data-party="vanguard" onclick="hitSymbol('vanguard')">🛡️</button>
         </div>
         <div class="game-message" id="sprintMessage">Press start, follow the target, and avoid wrong symbols.</div>
         <div class="fun-buttons game-actions">
@@ -1513,7 +1450,6 @@ footer {
         <div class="party-choice-grid" id="matchChoices">
           <button class="party-choice" type="button" onclick="answerPromise('rbm')">🧿 RBM</button>
           <button class="party-choice" type="button" onclick="answerPromise('blood')">🥊 Blood Hounds</button>
-          <button class="party-choice" type="button" onclick="answerPromise('vanguard')">🛡️ Vanguard</button>
         </div>
         <div class="game-message" id="matchMessage">Start a round and pick the party behind each promise.</div>
         <div class="fun-buttons game-actions">
@@ -1551,7 +1487,6 @@ footer {
         <div class="quiz-grid" id="quizOptions">
           <button class="quiz-option" type="button" onclick="answerQuiz('rbm')">Trips, cricket, and activities</button>
           <button class="quiz-option" type="button" onclick="answerQuiz('blood')">Thoughtful decisions and execution</button>
-          <button class="quiz-option" type="button" onclick="answerQuiz('vanguard')">Unity and equal voice</button>
           <button class="quiz-option" type="button" onclick="answerQuiz('chaos')">Maximum entertainment</button>
         </div>
         <div class="quiz-result" id="quizResult"></div>
@@ -1587,12 +1522,6 @@ footer {
           <td data-label="Candidate">Charan and Pravin</td>
           <td data-label="Symbol">🥊</td>
           <td data-label="Main Focus">Thoughtful discussion, diplomacy, planned execution, and no fixed ideology.</td>
-        </tr>
-        <tr>
-          <td data-label="Party">Vanguard</td>
-          <td data-label="Candidate">A. Amirtha Narayanan</td>
-          <td data-label="Symbol">🛡️</td>
-          <td data-label="Main Focus">Brotherhood, loyalty, respect, equal voice, discipline, accountability, privacy, support, fitness, mindset, and unity.</td>
         </tr>
       </tbody>
     </table>
@@ -1630,8 +1559,8 @@ footer {
       <div class="timeline-item">
         <div class="timeline-dot">🗳️</div>
         <div>
-          <h3>Election Day — May 12, 2026</h3>
-          <p>Voting will be held on May 12. Members vote based on candidates, policies, trust, vibes, and expected entertainment value.</p>
+          <h3>Election Day — October 25, 2026</h3>
+          <p>Voting will be held on October 25. Members vote based on candidates, policies, trust, vibes, and expected entertainment value.</p>
         </div>
       </div>
     </div>
@@ -1674,7 +1603,7 @@ footer {
       <h2>Choose wisely. Roast responsibly.</h2>
       <p>This election belongs to the people of Busted Minds. Read the manifestos, listen to campaigns, and vote for the future you want to suffer under.</p>
     </div>
-    <button class="vote-button" onclick="startDemocracy()">Election on May 12</button>
+    <button class="vote-button" onclick="startDemocracy()">Election on October 25</button>
   </section>
 </main>
 
@@ -1685,16 +1614,14 @@ footer {
 </footer>
 
   </div>  <script>
-    const electionDate = new Date('2026-05-12T20:00:00+05:30');
+    const electionDate = new Date('2026-10-25T20:00:00+05:30');
     const partyNames = {
       rbm: 'Republic Party of Busted Minds',
-      blood: 'Blood Hounds',
-      vanguard: 'Vanguard'
+      blood: 'Blood Hounds'
     };
     const partySymbols = {
       rbm: '🧿',
-      blood: '🥊',
-      vanguard: '🛡️'
+      blood: '🥊'
     };
     const promiseDeck = [
       { party: 'rbm', text: 'Busted Minds trip to Kerala.' },
@@ -1702,10 +1629,7 @@ footer {
       { party: 'rbm', text: 'Monthly leaderboard for physical activities.' },
       { party: 'blood', text: 'We think before we act.' },
       { party: 'blood', text: 'Discussion guides decisions before execution.' },
-      { party: 'blood', text: 'Diplomacy when needed.' },
-      { party: 'vanguard', text: 'Brotherhood first.' },
-      { party: 'vanguard', text: 'Equal voice for all.' },
-      { party: 'vanguard', text: 'Privacy and support stay protected inside the group.' }
+      { party: 'blood', text: 'Diplomacy when needed.' }
     ];
     const sprint = {
       active: false,
@@ -1755,14 +1679,6 @@ footer {
       }
     }
 
-    function toggleManifesto(event, button) {
-      event.stopPropagation();
-      const list = button.previousElementSibling;
-      const expanded = list.classList.toggle('expanded');
-      button.textContent = expanded ? 'Show less' : 'Show more';
-      button.setAttribute('aria-expanded', String(expanded));
-    }
-
     function scrollToGames(game) {
       document.getElementById('fun').scrollIntoView({ behavior: 'smooth', block: 'start' });
       const starter = game === 'match' ? startPromiseMatch : startSymbolSprint;
@@ -1789,7 +1705,6 @@ footer {
       const messages = {
         rbm: 'Your vibe match: 🧿 Republic Party of Busted Minds — trips, cricket, fitness, and group upgrades.',
         blood: 'Your vibe match: 🥊 Blood Hounds — think first, discuss clearly, then act with planning.',
-        vanguard: 'Your vibe match: 🛡️ Vanguard — brotherhood, unity, equal voice, and disciplined fun.',
         chaos: 'Your vibe match: 🤯 Undecided Swing Voter — you are here for entertainment, debates, and maximum drama.'
       };
       result.style.display = 'block';
